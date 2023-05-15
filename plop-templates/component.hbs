@@ -1,0 +1,17 @@
+import { Component, Prop, h, Host } from '@stencil/core';
+import { format } from '../../../utils/utils';
+
+@Component({
+  tag: 'name',
+  styleUrl: 'name.scss',
+  shadow: true,
+})
+export class MyComponent {
+  render() {
+    return (
+      <Host>
+        <div>Hello, World!</div>
+      </Host>
+    );
+  }
+}

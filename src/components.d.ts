@@ -6,56 +6,36 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface ProfileAvatar {
+        "name": string;
+        "size": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLProfileAvatarElement extends Components.ProfileAvatar, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLProfileAvatarElement: {
+        prototype: HTMLProfileAvatarElement;
+        new (): HTMLProfileAvatarElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "profile-avatar": HTMLProfileAvatarElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface ProfileAvatar {
+        "name"?: string;
+        "size"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "profile-avatar": ProfileAvatar;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "profile-avatar": LocalJSX.ProfileAvatar & JSXBase.HTMLAttributes<HTMLProfileAvatarElement>;
         }
     }
 }
