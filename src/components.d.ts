@@ -10,6 +10,11 @@ export namespace Components {
         "name": string;
         "size": string;
     }
+    interface ProfileLevel {
+        "devmode": boolean;
+        "level": number;
+        "xp": number;
+    }
 }
 declare global {
     interface HTMLProfileAvatarElement extends Components.ProfileAvatar, HTMLStencilElement {
@@ -18,8 +23,15 @@ declare global {
         prototype: HTMLProfileAvatarElement;
         new (): HTMLProfileAvatarElement;
     };
+    interface HTMLProfileLevelElement extends Components.ProfileLevel, HTMLStencilElement {
+    }
+    var HTMLProfileLevelElement: {
+        prototype: HTMLProfileLevelElement;
+        new (): HTMLProfileLevelElement;
+    };
     interface HTMLElementTagNameMap {
         "profile-avatar": HTMLProfileAvatarElement;
+        "profile-level": HTMLProfileLevelElement;
     }
 }
 declare namespace LocalJSX {
@@ -27,8 +39,14 @@ declare namespace LocalJSX {
         "name"?: string;
         "size"?: string;
     }
+    interface ProfileLevel {
+        "devmode"?: boolean;
+        "level"?: number;
+        "xp"?: number;
+    }
     interface IntrinsicElements {
         "profile-avatar": ProfileAvatar;
+        "profile-level": ProfileLevel;
     }
 }
 export { LocalJSX as JSX };
@@ -36,6 +54,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "profile-avatar": LocalJSX.ProfileAvatar & JSXBase.HTMLAttributes<HTMLProfileAvatarElement>;
+            "profile-level": LocalJSX.ProfileLevel & JSXBase.HTMLAttributes<HTMLProfileLevelElement>;
         }
     }
 }

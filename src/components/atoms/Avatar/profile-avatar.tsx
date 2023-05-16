@@ -7,7 +7,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 export class Avatar {
 
   @Prop() size = 'medium';
-  @Prop() name = 'siyabendözdemir'
+  @Prop() name = 'siyabendözdemir';
 
   render() {
     return (
