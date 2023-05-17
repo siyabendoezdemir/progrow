@@ -1,5 +1,5 @@
 export default {
-  title: 'Profile/Avatar',
+  title: 'Atoms/Profile/Avatar',
   argTypes: {
     name: {
       name: 'name',

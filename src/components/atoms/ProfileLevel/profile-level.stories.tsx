@@ -1,5 +1,5 @@
 export default {
-  title: 'Profile/Level',
+  title: 'Atoms/Profile/Level',
   argTypes: {
     devmode: {
       name: 'Developer Mode',
