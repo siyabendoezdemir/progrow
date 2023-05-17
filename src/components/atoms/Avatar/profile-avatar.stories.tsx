@@ -1,5 +1,5 @@
 export default {
-  title: 'Avatar',
+  title: 'Profile/Avatar',
   argTypes: {
     name: {
       name: 'name',
@@ -23,3 +23,7 @@ export default {
 const template = args => `<profile-avatar name="${args.name}" size="${args.size}"></profile-avatar>`;
 
 export const icon = template.bind({});
+icon.args = {
+  name: '',
+  size: 'medium',
+}

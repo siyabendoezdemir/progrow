@@ -1,24 +1,6 @@
 export default {
-  title: 'Level',
+  title: 'Profile/Level',
   argTypes: {
-    level: {
-      name: 'Level',
-      defaultValue: 1,
-      control: {
-        type: 'number',
-        min: 1,
-        max: 250,
-      },
-    },
-    xp: {
-      name: 'XP',
-      defaultValue: 0,
-      control: {
-        type: 'number',
-        min: 0,
-        max: 100,
-      },
-    },
     devmode: {
       name: 'Developer Mode',
       defaultValue: false,
@@ -33,7 +15,5 @@ const Template = args => {
 
 export const profileLevel = Template.bind({});
 profileLevel.args = {
-  level: 1,
-  xp: 0,
   devmode: false,
 };

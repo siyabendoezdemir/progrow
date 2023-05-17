@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, } from '@stencil/core';
+import { Component, h, Host, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'profile-level',
@@ -6,12 +6,26 @@ import { Component, h, Host, Prop, } from '@stencil/core';
   shadow: true,
 })
 export class profileLevel {
-  @Prop() xp: number;
-  @Prop() level: number;
+
+  db = window.localStorage;
+
+  @State() xp: number = this.db.getItem('xp') == null ? 0 : Number(this.db.getItem('xp'));
+  @State() level: number = this.db.getItem('level') == null ? 1 : Number(this.db.getItem('level'));
   @Prop() devmode: boolean;
 
-  addXP() {
-    this.xp += 10;
+  addXP(amount: number) {
+    this.checkLevel(this.xp, this.xp + amount);
+    this.xp += amount;
+    this.db.setItem('xp', `${this.xp}`);
+  }
+
+  checkLevel(oldValue, newValue) {
+    if(newValue >= oldValue && newValue >= 100){
+      this.level++;
+      this.xp = 0;
+      this.db.setItem('level', `${this.level}`);
+      this.db.setItem('xp', `${this.xp}`);
+    }
   }
 
   render() {
@@ -26,7 +40,7 @@ export class profileLevel {
             <div class="bar" style={{ width: `${this.xp}%` }}></div>
           </div>
         </div>
-        <button style={{ display: `${this.devmode ? `block` : `none`}` }} onClick={() => this.addXP()}>+10 XP</button>
+        <button style={{ display: `${this.devmode ? `block` : `none`}` }} onClick={() => this.addXP(10)}>+10 XP</button>
       </Host>
     );
   }

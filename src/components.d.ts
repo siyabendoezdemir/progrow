@@ -12,8 +12,6 @@ export namespace Components {
     }
     interface ProfileLevel {
         "devmode": boolean;
-        "level": number;
-        "xp": number;
     }
 }
 declare global {
@@ -41,8 +39,6 @@ declare namespace LocalJSX {
     }
     interface ProfileLevel {
         "devmode"?: boolean;
-        "level"?: number;
-        "xp"?: number;
     }
     interface IntrinsicElements {
         "profile-avatar": ProfileAvatar;
