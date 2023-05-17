@@ -1,12 +1,17 @@
-.profile-card{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-    justify-content: start;
-}
+.profile-card {
+  min-width: 300px;
+  max-width: 400px;
 
-img {
-    width: 100px;
-    height: 100px;
+  min-height: 225px;
+  max-height: 325px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background-image: url('https://yourimageshare.com/ib/7E5j2QWs4Z.webp');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
