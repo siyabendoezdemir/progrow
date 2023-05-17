@@ -20,7 +20,9 @@
     height: 20px;
     overflow: hidden;
     background: #ececec;
+    border: 1px solid whitesmoke;
     border-radius: 4px;
+    box-shadow: -1px 1px 1px 1px white;
 
     .bar {
       position: relative;
@@ -30,4 +32,13 @@
       background: rgb(122, 169, 255);
     }
   }
+}
+
+.devmode-btn{
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  width: 100px;
+  font-size: small;
+  box-shadow: -2px 2px 2px 2px black;
 }

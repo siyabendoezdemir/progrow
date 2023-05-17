@@ -10,7 +10,7 @@ export default {
 };
 
 const Template = args => {
-  return `<profile-level xp="${args.xp}" devmode="${args.devmode}" level="${args.level}"/>`;
+  return `<profile-level devmode="${args.devmode}" />`;
 };
 
 export const profileLevel = Template.bind({});

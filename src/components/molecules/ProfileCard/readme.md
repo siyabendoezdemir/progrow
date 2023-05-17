@@ -5,6 +5,13 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property  | Attribute | Description | Type      | Default |
+| --------- | --------- | ----------- | --------- | ------- |
+| `devmode` | `devmode` |             | `boolean` | `false` |
+
+
 ## Dependencies
 
 ### Depends on

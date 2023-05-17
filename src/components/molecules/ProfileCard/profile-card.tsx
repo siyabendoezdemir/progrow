@@ -1,4 +1,4 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'profile-card',
@@ -6,12 +6,15 @@ import { Component, h, Host } from '@stencil/core';
   shadow: true,
 })
 export class profileCard {
+
+  @Prop() devmode: boolean = false;
+
   render() {
     return (
       <Host>
         <div class={`profile-card`}>
           <profile-avatar></profile-avatar>
-          <profile-level></profile-level>
+          <profile-level devmode={ this.devmode }></profile-level>
         </div>
       </Host>
     );

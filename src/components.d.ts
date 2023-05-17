@@ -11,6 +11,7 @@ export namespace Components {
         "size": string;
     }
     interface ProfileCard {
+        "devmode": boolean;
     }
     interface ProfileLevel {
         "devmode": boolean;
@@ -47,6 +48,7 @@ declare namespace LocalJSX {
         "size"?: string;
     }
     interface ProfileCard {
+        "devmode"?: boolean;
     }
     interface ProfileLevel {
         "devmode"?: boolean;

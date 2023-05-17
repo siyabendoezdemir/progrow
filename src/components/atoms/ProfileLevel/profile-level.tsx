@@ -40,7 +40,7 @@ export class profileLevel {
             <div class="bar" style={{ width: `${this.xp}%` }}></div>
           </div>
         </div>
-        <button style={{ display: `${this.devmode ? `block` : `none`}` }} onClick={() => this.addXP(10)}>+10 XP</button>
+        <button class={`devmode-btn`} style={{ display: `${this.devmode ? `block` : `none`}` }} onClick={() => this.addXP(10)}>+10 XP</button>
       </Host>
     );
   }
