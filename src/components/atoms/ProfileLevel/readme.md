@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default     |
-| --------- | --------- | ----------- | --------- | ----------- |
-| `devmode` | `devmode` |             | `boolean` | `undefined` |
+| Property   | Attribute  | Description | Type     | Default  |
+| ---------- | ---------- | ----------- | -------- | -------- |
+| `username` | `username` |             | `string` | `'Siya'` |
 
 
 ## Dependencies

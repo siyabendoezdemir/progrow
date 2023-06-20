@@ -31,7 +31,10 @@
     "generate:component": "plop component"
   },
   "dependencies": {
-    "@stencil/core": "^3.0.0"
+    "@stencil/core": "^3.0.0",
+    "axios": "^1.4.0",
+    "firebase": "^9.22.2",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.11",

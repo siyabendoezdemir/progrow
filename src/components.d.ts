@@ -11,10 +11,14 @@ export namespace Components {
         "size": string;
     }
     interface ProfileCard {
-        "devmode": boolean;
     }
     interface ProfileLevel {
-        "devmode": boolean;
+        "username": string;
+    }
+    interface ProfileLogin {
+    }
+    interface TrackingTime {
+        "username": string;
     }
 }
 declare global {
@@ -36,10 +40,24 @@ declare global {
         prototype: HTMLProfileLevelElement;
         new (): HTMLProfileLevelElement;
     };
+    interface HTMLProfileLoginElement extends Components.ProfileLogin, HTMLStencilElement {
+    }
+    var HTMLProfileLoginElement: {
+        prototype: HTMLProfileLoginElement;
+        new (): HTMLProfileLoginElement;
+    };
+    interface HTMLTrackingTimeElement extends Components.TrackingTime, HTMLStencilElement {
+    }
+    var HTMLTrackingTimeElement: {
+        prototype: HTMLTrackingTimeElement;
+        new (): HTMLTrackingTimeElement;
+    };
     interface HTMLElementTagNameMap {
         "profile-avatar": HTMLProfileAvatarElement;
         "profile-card": HTMLProfileCardElement;
         "profile-level": HTMLProfileLevelElement;
+        "profile-login": HTMLProfileLoginElement;
+        "tracking-time": HTMLTrackingTimeElement;
     }
 }
 declare namespace LocalJSX {
@@ -48,15 +66,21 @@ declare namespace LocalJSX {
         "size"?: string;
     }
     interface ProfileCard {
-        "devmode"?: boolean;
     }
     interface ProfileLevel {
-        "devmode"?: boolean;
+        "username"?: string;
+    }
+    interface ProfileLogin {
+    }
+    interface TrackingTime {
+        "username": string;
     }
     interface IntrinsicElements {
         "profile-avatar": ProfileAvatar;
         "profile-card": ProfileCard;
         "profile-level": ProfileLevel;
+        "profile-login": ProfileLogin;
+        "tracking-time": TrackingTime;
     }
 }
 export { LocalJSX as JSX };
@@ -66,6 +90,8 @@ declare module "@stencil/core" {
             "profile-avatar": LocalJSX.ProfileAvatar & JSXBase.HTMLAttributes<HTMLProfileAvatarElement>;
             "profile-card": LocalJSX.ProfileCard & JSXBase.HTMLAttributes<HTMLProfileCardElement>;
             "profile-level": LocalJSX.ProfileLevel & JSXBase.HTMLAttributes<HTMLProfileLevelElement>;
+            "profile-login": LocalJSX.ProfileLogin & JSXBase.HTMLAttributes<HTMLProfileLoginElement>;
+            "tracking-time": LocalJSX.TrackingTime & JSXBase.HTMLAttributes<HTMLTrackingTimeElement>;
         }
     }
 }
