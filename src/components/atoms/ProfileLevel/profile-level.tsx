@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop, State } from '@stencil/core';
-import { calculateLevelProgress, getUserLevel, getUserXP } from '../../../utils/user';
+import { calculateLevelProgress, getUserLevel, getUsername, getUserXP } from '../../../utils/user';
 
 @Component({
   tag: 'profile-level',
@@ -7,7 +7,7 @@ import { calculateLevelProgress, getUserLevel, getUserXP } from '../../../utils/
   shadow: true,
 })
 export class profileLevel {
-  @Prop() username: string = 'Siya';
+  @Prop() username: string = getUsername();
   @State() xp: number;
   @State() level: number;
   @State() progress: number;

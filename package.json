@@ -31,10 +31,14 @@
     "generate:component": "plop component"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.5.1",
     "@stencil/core": "^3.0.0",
+    "@uiw/react-textarea-code-editor": "^2.1.6",
     "axios": "^1.4.0",
     "firebase": "^9.22.2",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "monaco-editor": "^0.39.0",
+    "rollup-plugin-scss": "^4.0.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.11",

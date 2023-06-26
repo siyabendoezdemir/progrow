@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type     | Default  |
-| ---------- | ---------- | ----------- | -------- | -------- |
-| `username` | `username` |             | `string` | `'Siya'` |
+| Property   | Attribute  | Description | Type     | Default         |
+| ---------- | ---------- | ----------- | -------- | --------------- |
+| `username` | `username` |             | `string` | `getUsername()` |
 
 
 ## Dependencies

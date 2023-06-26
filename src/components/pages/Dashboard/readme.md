@@ -1,4 +1,4 @@
-# profile-card
+# app-dashboard
 
 
 
@@ -7,24 +7,20 @@
 
 ## Dependencies
 
-### Used by
-
- - [app-dashboard](../../pages/Dashboard)
-
 ### Depends on
 
-- [profile-avatar](../../atoms/Avatar)
-- [profile-level](../../atoms/ProfileLevel)
-- [profile-login](../../atoms/Login)
+- [profile-card](../../molecules/ProfileCard)
+- [user-challenges](../../atoms/Challenges)
 
 ### Graph
 ```mermaid
 graph TD;
+  app-dashboard --> profile-card
+  app-dashboard --> user-challenges
   profile-card --> profile-avatar
   profile-card --> profile-level
   profile-card --> profile-login
-  app-dashboard --> profile-card
-  style profile-card fill:#f9f,stroke:#333,stroke-width:4px
+  style app-dashboard fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

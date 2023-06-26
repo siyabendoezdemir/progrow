@@ -6,8 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AppDashboard {
+    }
     interface ProfileAvatar {
-        "name": string;
+        "name": any;
         "size": string;
     }
     interface ProfileCard {
@@ -17,11 +19,18 @@ export namespace Components {
     }
     interface ProfileLogin {
     }
-    interface TrackingTime {
-        "username": string;
+    interface UserChallenges {
+        "xp2500Collected": boolean;
+        "xp500Collected": boolean;
     }
 }
 declare global {
+    interface HTMLAppDashboardElement extends Components.AppDashboard, HTMLStencilElement {
+    }
+    var HTMLAppDashboardElement: {
+        prototype: HTMLAppDashboardElement;
+        new (): HTMLAppDashboardElement;
+    };
     interface HTMLProfileAvatarElement extends Components.ProfileAvatar, HTMLStencilElement {
     }
     var HTMLProfileAvatarElement: {
@@ -46,23 +55,26 @@ declare global {
         prototype: HTMLProfileLoginElement;
         new (): HTMLProfileLoginElement;
     };
-    interface HTMLTrackingTimeElement extends Components.TrackingTime, HTMLStencilElement {
+    interface HTMLUserChallengesElement extends Components.UserChallenges, HTMLStencilElement {
     }
-    var HTMLTrackingTimeElement: {
-        prototype: HTMLTrackingTimeElement;
-        new (): HTMLTrackingTimeElement;
+    var HTMLUserChallengesElement: {
+        prototype: HTMLUserChallengesElement;
+        new (): HTMLUserChallengesElement;
     };
     interface HTMLElementTagNameMap {
+        "app-dashboard": HTMLAppDashboardElement;
         "profile-avatar": HTMLProfileAvatarElement;
         "profile-card": HTMLProfileCardElement;
         "profile-level": HTMLProfileLevelElement;
         "profile-login": HTMLProfileLoginElement;
-        "tracking-time": HTMLTrackingTimeElement;
+        "user-challenges": HTMLUserChallengesElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppDashboard {
+    }
     interface ProfileAvatar {
-        "name"?: string;
+        "name"?: any;
         "size"?: string;
     }
     interface ProfileCard {
@@ -72,26 +84,29 @@ declare namespace LocalJSX {
     }
     interface ProfileLogin {
     }
-    interface TrackingTime {
-        "username": string;
+    interface UserChallenges {
+        "xp2500Collected"?: boolean;
+        "xp500Collected"?: boolean;
     }
     interface IntrinsicElements {
+        "app-dashboard": AppDashboard;
         "profile-avatar": ProfileAvatar;
         "profile-card": ProfileCard;
         "profile-level": ProfileLevel;
         "profile-login": ProfileLogin;
-        "tracking-time": TrackingTime;
+        "user-challenges": UserChallenges;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-dashboard": LocalJSX.AppDashboard & JSXBase.HTMLAttributes<HTMLAppDashboardElement>;
             "profile-avatar": LocalJSX.ProfileAvatar & JSXBase.HTMLAttributes<HTMLProfileAvatarElement>;
             "profile-card": LocalJSX.ProfileCard & JSXBase.HTMLAttributes<HTMLProfileCardElement>;
             "profile-level": LocalJSX.ProfileLevel & JSXBase.HTMLAttributes<HTMLProfileLevelElement>;
             "profile-login": LocalJSX.ProfileLogin & JSXBase.HTMLAttributes<HTMLProfileLoginElement>;
-            "tracking-time": LocalJSX.TrackingTime & JSXBase.HTMLAttributes<HTMLTrackingTimeElement>;
+            "user-challenges": LocalJSX.UserChallenges & JSXBase.HTMLAttributes<HTMLUserChallengesElement>;
         }
     }
 }

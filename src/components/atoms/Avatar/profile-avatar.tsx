@@ -1,4 +1,5 @@
 import { Component, h, Host, Prop } from '@stencil/core';
+import { getUsername } from '../../../utils/user';
 
 @Component({
   tag: 'profile-avatar',
@@ -7,7 +8,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 export class Avatar {
 
   @Prop() size = 'medium';
-  @Prop() name = 'siyabendözdemir';
+  @Prop() name = getUsername();
 
   render() {
     return (

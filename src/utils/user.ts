@@ -21,6 +21,26 @@ export async function getUserXP(username): Promise<number> {
   return res;
 }
 
+export async function getNewUserXP(username): Promise<number> {
+  let res = 0;
+
+  try {
+    const response = await fetch(`https://codestats.net/api/users/${username}`);
+
+    if (response.ok) {
+      const data = await response.json();
+      // Process the data as needed
+      res = data.new_xp;
+    } else {
+      console.error('Failed to fetch xp:', response.status, response.statusText);
+    }
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
+
+  return res;
+}
+
 export async function getUserLevel(username): Promise<number> {
   const LEVEL_FACTOR = 0.025;
 
@@ -33,7 +53,7 @@ function getNextLevelXP(level: number): number {
   return Math.trunc(Math.pow(Math.ceil((level + 1) / LEVEL_FACTOR), 2));
 }
 
-export async function calculateLevelProgress(userName: String, currentXP: number): Promise<number> {
+export async function calculateLevelProgress(userName: String, currentXP: number) {
   const level: number = await getUserLevel(userName);
   const currentLevelXP: number = getNextLevelXP(level - 1);
   const nextLevelXP: number = getNextLevelXP(level);
@@ -42,6 +62,27 @@ export async function calculateLevelProgress(userName: String, currentXP: number
   const neededXP: number = nextLevelXP - currentLevelXP;
 
   return Math.trunc((haveXP / neededXP) * 100);
+}
+
+export function getUsername(){
+  const storedData = localStorage.getItem('user');
+  const parsedData = JSON.parse(storedData);
+  const value = parsedData.username;
+  return value;
+}
+
+export function getUsertoken(){
+  const storedData = localStorage.getItem('user');
+  const parsedData = JSON.parse(storedData);
+  const value = parsedData.token;
+  return value;
+}
+
+export function getUserID(){
+  const storedData = localStorage.getItem('user');
+  const parsedData = JSON.parse(storedData);
+  const value = parsedData.id;
+  return value;
 }
 
 export function getUserStatus() {

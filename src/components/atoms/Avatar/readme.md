@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default             |
-| -------- | --------- | ----------- | -------- | ------------------- |
-| `name`   | `name`    |             | `string` | `'siyabendözdemir'` |
-| `size`   | `size`    |             | `string` | `'medium'`          |
+| Property | Attribute | Description | Type     | Default         |
+| -------- | --------- | ----------- | -------- | --------------- |
+| `name`   | `name`    |             | `any`    | `getUsername()` |
+| `size`   | `size`    |             | `string` | `'medium'`      |
 
 
 ## Dependencies
