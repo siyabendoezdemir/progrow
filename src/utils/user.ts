@@ -64,21 +64,21 @@ export async function calculateLevelProgress(userName: String, currentXP: number
   return Math.trunc((haveXP / neededXP) * 100);
 }
 
-export function getUsername(){
+export function getUsername() {
   const storedData = localStorage.getItem('user');
   const parsedData = JSON.parse(storedData);
   const value = parsedData.username;
   return value;
 }
 
-export function getUsertoken(){
+export function getUsertoken() {
   const storedData = localStorage.getItem('user');
   const parsedData = JSON.parse(storedData);
   const value = parsedData.token;
   return value;
 }
 
-export function getUserID(){
+export function getUserID() {
   const storedData = localStorage.getItem('user');
   const parsedData = JSON.parse(storedData);
   const value = parsedData.id;
@@ -114,7 +114,7 @@ export function loginUser(username, token) {
           .set(data)
           .then(() => {
             const documentId = newDocument.id;
-            localStorage.setItem('user', JSON.stringify({id: documentId, username: username, token: token}));
+            localStorage.setItem('user', JSON.stringify({ id: documentId, username: username, token: token, coins: 0 }));
             console.log('New document created with ID:', documentId);
             window.location.reload();
           })
@@ -123,9 +123,9 @@ export function loginUser(username, token) {
           });
       } else {
         // A matching document already exists
-        querySnapshot.forEach((doc) => {
+        querySnapshot.forEach(doc => {
           const documentId = doc.id;
-          localStorage.setItem('user', JSON.stringify({id: documentId, username: username, token: token}));
+          localStorage.setItem('user', JSON.stringify({ id: documentId, username: username, token: token, coins: 0 }));
           window.location.reload();
         });
       }
@@ -133,4 +133,37 @@ export function loginUser(username, token) {
     .catch(error => {
       console.error('Error checking for existing documents:', error);
     });
+}
+
+export function giveCoins(userID: string, coins: number) {
+  try {
+    const db = firebase.firestore();
+    const userRef = db.collection("users").doc(userID);
+
+    userRef.update({
+      coins: firebase.firestore.FieldValue.increment(coins)
+    });
+
+    console.log(`Coins updated successfully for user ${userID}`);
+  } catch (error) {
+    console.error("Error updating coins:", error);
+  }
+}
+
+export async function getUsersRanked(): Promise<any[]> {
+  const db = firebase.firestore();
+
+  // Retrieve the top 50 users sorted by coins in descending order
+  const querySnapshot = await db.collection('users')
+    .orderBy('coins', 'desc')
+    .limit(50)
+    .get();
+
+  // Convert querySnapshot to an array of user objects with name and coins
+  const topUsers = querySnapshot.docs.map((doc) => {
+    const { username, coins } = doc.data();
+    return { username, coins };
+  });
+
+  return topUsers;
 }

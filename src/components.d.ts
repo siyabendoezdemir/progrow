@@ -23,6 +23,8 @@ export namespace Components {
         "xp2500Collected": boolean;
         "xp500Collected": boolean;
     }
+    interface UserLeaderboard {
+    }
 }
 declare global {
     interface HTMLAppDashboardElement extends Components.AppDashboard, HTMLStencilElement {
@@ -61,6 +63,12 @@ declare global {
         prototype: HTMLUserChallengesElement;
         new (): HTMLUserChallengesElement;
     };
+    interface HTMLUserLeaderboardElement extends Components.UserLeaderboard, HTMLStencilElement {
+    }
+    var HTMLUserLeaderboardElement: {
+        prototype: HTMLUserLeaderboardElement;
+        new (): HTMLUserLeaderboardElement;
+    };
     interface HTMLElementTagNameMap {
         "app-dashboard": HTMLAppDashboardElement;
         "profile-avatar": HTMLProfileAvatarElement;
@@ -68,6 +76,7 @@ declare global {
         "profile-level": HTMLProfileLevelElement;
         "profile-login": HTMLProfileLoginElement;
         "user-challenges": HTMLUserChallengesElement;
+        "user-leaderboard": HTMLUserLeaderboardElement;
     }
 }
 declare namespace LocalJSX {
@@ -88,6 +97,8 @@ declare namespace LocalJSX {
         "xp2500Collected"?: boolean;
         "xp500Collected"?: boolean;
     }
+    interface UserLeaderboard {
+    }
     interface IntrinsicElements {
         "app-dashboard": AppDashboard;
         "profile-avatar": ProfileAvatar;
@@ -95,6 +106,7 @@ declare namespace LocalJSX {
         "profile-level": ProfileLevel;
         "profile-login": ProfileLogin;
         "user-challenges": UserChallenges;
+        "user-leaderboard": UserLeaderboard;
     }
 }
 export { LocalJSX as JSX };
@@ -107,6 +119,7 @@ declare module "@stencil/core" {
             "profile-level": LocalJSX.ProfileLevel & JSXBase.HTMLAttributes<HTMLProfileLevelElement>;
             "profile-login": LocalJSX.ProfileLogin & JSXBase.HTMLAttributes<HTMLProfileLoginElement>;
             "user-challenges": LocalJSX.UserChallenges & JSXBase.HTMLAttributes<HTMLUserChallengesElement>;
+            "user-leaderboard": LocalJSX.UserLeaderboard & JSXBase.HTMLAttributes<HTMLUserLeaderboardElement>;
         }
     }
 }

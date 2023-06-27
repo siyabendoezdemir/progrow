@@ -23,10 +23,10 @@ export class profileLevel {
       <Host>
         <div class={`level-wrapper`}>
           <span class={`level-text`}>
-            lvl. <span class={`level`}>{this.level}</span>
+            <span class={'user-tag'}>{this.username}</span> lvl. <span class={`level`}>{this.level}</span>
           </span>
           <div class="progress">
-            <div class="bar" style={{ width: `${ this.progress }%` }}></div>
+            <div class="bar" style={{ width: `${this.progress}%` }}></div>
           </div>
         </div>
       </Host>

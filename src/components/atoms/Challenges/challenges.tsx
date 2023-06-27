@@ -1,5 +1,7 @@
 import { Component, h, Prop, State } from '@stencil/core';
-import { getNewUserXP, getUsername } from '../../../utils/user';
+import firebase from 'firebase/compat';
+import { firebaseConfig } from '../../../utils/firebase.config';
+import { getNewUserXP, getUsername, giveCoins } from '../../../utils/user';
 
 @Component({
   tag: 'user-challenges',
@@ -35,21 +37,35 @@ export class Challenges {
     } else if (localStorage.getItem('xp2500Collected') === null) {
       localStorage.setItem('xp2500Collected', 'false');
     }
+
+    /* RESET XP COLLECTED STATUS IF NEW DAY */
+    const lastResetDate = localStorage.getItem('lastResetDate');
+    if (lastResetDate !== today) {
+      localStorage.setItem('lastResetDate', today);
+      localStorage.setItem('xp500Collected', 'false');
+      localStorage.setItem('xp2500Collected', 'false');
+      this.xp500Collected = false;
+      this.xp2500Collected = false;
+    }
+  }
+
+  componentDidLoad() {
+    firebase.initializeApp(firebaseConfig);
   }
 
   claimReward(type: string) {
     if (type === 'login') {
       localStorage.setItem('lastLoginDate', new Date().toLocaleDateString());
       this.loggedInClaimable = false;
-      //GIVE COINS TO USER
+      giveCoins(JSON.parse(localStorage.getItem('user')).id, 1);
     } else if (type === 'xp500') {
       this.xp500Collected = true;
       localStorage.setItem('xp500Collected', 'true');
-      //GIVE COINS TO USER
+      giveCoins(JSON.parse(localStorage.getItem('user')).id, 3);
     } else {
       this.xp2500Collected = true;
       localStorage.setItem('xp2500Collected', 'true');
-      //GIVE COINS TO USER
+      giveCoins(JSON.parse(localStorage.getItem('user')).id, 5);
     }
   }
 

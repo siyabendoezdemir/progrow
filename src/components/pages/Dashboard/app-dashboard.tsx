@@ -8,10 +8,10 @@ import { Component, h, Host } from '@stencil/core';
 export class Dashboard {
   render() {
     return (
-      <Host>
+      <Host class={'host'}>
         <div class={'profile-information'}>
-          <profile-card class={'profile'}></profile-card>
-          <user-challenges class={'challenges'}></user-challenges>
+          <profile-card class={'profile'} />
+          <user-challenges class={'challenges'} />
         </div>
       </Host>
     );
