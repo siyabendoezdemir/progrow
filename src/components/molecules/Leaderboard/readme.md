@@ -7,6 +7,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [app-dashboard](../../pages/Dashboard)
+
 ### Depends on
 
 - [profile-avatar](../../atoms/Avatar)
@@ -15,6 +19,7 @@
 ```mermaid
 graph TD;
   user-leaderboard --> profile-avatar
+  app-dashboard --> user-leaderboard
   style user-leaderboard fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -38,6 +38,7 @@
     "firebase": "^9.22.2",
     "moment": "^2.29.4",
     "monaco-editor": "^0.39.0",
+    "react-monaco-editor": "^0.52.0",
     "rollup-plugin-scss": "^4.0.0"
   },
   "devDependencies": {

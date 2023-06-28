@@ -1,5 +1,5 @@
 export default {
-  title: 'Molecules/Challenges',
+  title: 'Molecules/Social/Challenges',
   argTypes: {},
 };
 const template = () => `<user-challenges></user-challenges>`;

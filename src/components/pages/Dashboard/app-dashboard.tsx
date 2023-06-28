@@ -1,4 +1,4 @@
-import { Component, h, Host } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'app-dashboard',
@@ -8,12 +8,15 @@ import { Component, h, Host } from '@stencil/core';
 export class Dashboard {
   render() {
     return (
-      <Host class={'host'}>
+      <div class={'dashboard-container'}>
         <div class={'profile-information'}>
           <profile-card class={'profile'} />
           <user-challenges class={'challenges'} />
         </div>
-      </Host>
+        <div class={'right'}>
+          <user-leaderboard class={'leaderboard'} />
+        </div>
+      </div>
     );
   }
 }

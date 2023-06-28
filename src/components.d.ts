@@ -8,6 +8,12 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppDashboard {
     }
+    interface BattleEditor {
+        "height": number;
+        "width": number;
+    }
+    interface CodeBattles {
+    }
     interface ProfileAvatar {
         "name": any;
         "size": string;
@@ -32,6 +38,18 @@ declare global {
     var HTMLAppDashboardElement: {
         prototype: HTMLAppDashboardElement;
         new (): HTMLAppDashboardElement;
+    };
+    interface HTMLBattleEditorElement extends Components.BattleEditor, HTMLStencilElement {
+    }
+    var HTMLBattleEditorElement: {
+        prototype: HTMLBattleEditorElement;
+        new (): HTMLBattleEditorElement;
+    };
+    interface HTMLCodeBattlesElement extends Components.CodeBattles, HTMLStencilElement {
+    }
+    var HTMLCodeBattlesElement: {
+        prototype: HTMLCodeBattlesElement;
+        new (): HTMLCodeBattlesElement;
     };
     interface HTMLProfileAvatarElement extends Components.ProfileAvatar, HTMLStencilElement {
     }
@@ -71,6 +89,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-dashboard": HTMLAppDashboardElement;
+        "battle-editor": HTMLBattleEditorElement;
+        "code-battles": HTMLCodeBattlesElement;
         "profile-avatar": HTMLProfileAvatarElement;
         "profile-card": HTMLProfileCardElement;
         "profile-level": HTMLProfileLevelElement;
@@ -81,6 +101,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppDashboard {
+    }
+    interface BattleEditor {
+        "height"?: number;
+        "width"?: number;
+    }
+    interface CodeBattles {
     }
     interface ProfileAvatar {
         "name"?: any;
@@ -101,6 +127,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-dashboard": AppDashboard;
+        "battle-editor": BattleEditor;
+        "code-battles": CodeBattles;
         "profile-avatar": ProfileAvatar;
         "profile-card": ProfileCard;
         "profile-level": ProfileLevel;
@@ -114,6 +142,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-dashboard": LocalJSX.AppDashboard & JSXBase.HTMLAttributes<HTMLAppDashboardElement>;
+            "battle-editor": LocalJSX.BattleEditor & JSXBase.HTMLAttributes<HTMLBattleEditorElement>;
+            "code-battles": LocalJSX.CodeBattles & JSXBase.HTMLAttributes<HTMLCodeBattlesElement>;
             "profile-avatar": LocalJSX.ProfileAvatar & JSXBase.HTMLAttributes<HTMLProfileAvatarElement>;
             "profile-card": LocalJSX.ProfileCard & JSXBase.HTMLAttributes<HTMLProfileCardElement>;
             "profile-level": LocalJSX.ProfileLevel & JSXBase.HTMLAttributes<HTMLProfileLevelElement>;
